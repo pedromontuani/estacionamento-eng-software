@@ -127,7 +127,10 @@ export const findUsuarioByEmailAndPassoword = (
 
 export const getPatios = (state: IEstacionamentoState) => state.patios;
 
-export const getCarrossByIdPatio = (
+export const getPatioById = (state: IEstacionamentoState, idPatio: string) =>
+  state.patios.find(p => p.id === idPatio);
+
+export const getCarrosByIdPatio = (
   state: IEstacionamentoState,
   idPatio: string,
 ) => state.clientes.filter(cliente => cliente.idPatio === idPatio);

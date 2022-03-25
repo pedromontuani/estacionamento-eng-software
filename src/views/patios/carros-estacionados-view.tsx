@@ -4,7 +4,10 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {useAppSelector} from '../../store';
 import {ICliente} from '../../types';
-import {getCarrossByIdPatio} from '../../store/slices/estacionamento-slice';
+import {
+  getCarrosByIdPatio,
+  getPatioById,
+} from '../../store/slices/estacionamento-slice';
 import {RootNavigationScreens} from '../../router';
 
 const CarrosEstacionadosView: React.FC<{}> = () => {
@@ -13,7 +16,10 @@ const CarrosEstacionadosView: React.FC<{}> = () => {
   } = useRoute<RouteProp<RootNavigationScreens, 'CarrosEstacionados'>>();
 
   const carros = useAppSelector(({estacionamento}) =>
-    getCarrossByIdPatio(estacionamento, idPatio),
+    getCarrosByIdPatio(estacionamento, idPatio),
+  );
+  const patio = useAppSelector(({estacionamento}) =>
+    getPatioById(estacionamento, idPatio),
   );
 
   const renderItem = ({item}: {item: ICliente}) => {
@@ -29,7 +35,7 @@ const CarrosEstacionadosView: React.FC<{}> = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Carros estacionados em: Pátio A</Text>
+      <Text>Carros estacionados em: {patio?.nome}</Text>
       <FlatList
         style={styles.list}
         contentContainerStyle={styles.flatList}
