@@ -1,45 +1,108 @@
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
-  Button,
   Modal,
   StyleSheet,
   View,
   Dimensions,
   Text,
+  Button as RNButton,
   TouchableWithoutFeedback,
+  Alert,
 } from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+import {Masks} from 'react-native-mask-input';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
+import {RootNavigationScreens} from '../../router';
+import {useAppDispatch, useAppSelector} from '../../store';
+import {REMOVE_CLIENTE} from '../../store/slices/estacionamento-slice';
+import {ICliente} from '../../types';
 
 const ClientesView: React.FC<{}> = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const {navigate} = useNavigation();
+  const [cpfModalVisible, setCpfModalVisible] = useState(false);
+  const [confirmationModalVisible, setConfirmationModalVisible] =
+    useState(false);
+  const [cpf, setCpf] = useState<string>();
+  const [cliente, setCliente] = useState<ICliente>();
+  const [value, setValue] = useState<string>();
+  const {navigate} = useNavigation<NavigationProp<RootNavigationScreens>>();
+
+  const {clientes, patios} = useAppSelector(state => state.estacionamento);
+  const dispatch = useAppDispatch();
 
   const onPressCheckin = () => {
     navigate('CheckinCliente');
   };
 
   const onPressCheckout = () => {
-    setModalVisible(true);
+    setCpfModalVisible(true);
+  };
+
+  const onCheckoutConfirm = () => {
+    if (cliente) {
+      dispatch(REMOVE_CLIENTE(cliente));
+      setConfirmationModalVisible(false);
+      Alert.alert('Sucesso', 'Pagamento realizado com sucesso');
+    }
+  };
+
+  const onPressConfirm = async () => {
+    const clienteInstance = clientes.find(c => c.cpf === cpf);
+    if (clienteInstance) {
+      const patio = patios.find(p => p.id === clienteInstance.idPatio);
+      setCliente(clienteInstance);
+      setValue(patio?.valorHora?.toFixed(2));
+      setConfirmationModalVisible(true);
+      setCpfModalVisible(false);
+    } else {
+      Alert.alert('Erro', 'Cliente não cadastrado');
+    }
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.buttonsContainer}>
-        <Button title="CHECK-IN" onPress={onPressCheckin} />
-        <Button title="CHECK-OUT" onPress={onPressCheckout} />
+        <RNButton title="CHECK-IN" onPress={onPressCheckin} />
+        <RNButton title="CHECK-OUT" onPress={onPressCheckout} />
       </View>
       <Modal
-        visible={modalVisible}
+        visible={cpfModalVisible}
         transparent
-        onRequestClose={() => setModalVisible(false)}>
-        <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+        onRequestClose={() => setCpfModalVisible(false)}>
+        <TouchableWithoutFeedback onPress={() => setCpfModalVisible(false)}>
           <View style={styles.modalContainer}>
             <TouchableWithoutFeedback>
               <View style={styles.modalContentContainer}>
                 <Text>Check-Out</Text>
-                <TextInput placeholder="CPF" />
-                <Button title="CONFIRMAR" />
+                <Input
+                  placeholder="CPF"
+                  keyboardType="numeric"
+                  mask={Masks.BRL_CPF}
+                  onChangeText={setCpf}
+                  value={cpf}
+                />
+                <Button title="CONFIRMAR" onPress={onPressConfirm} />
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+
+      <Modal
+        visible={confirmationModalVisible}
+        transparent
+        onRequestClose={() => setConfirmationModalVisible(false)}>
+        <TouchableWithoutFeedback
+          onPress={() => setConfirmationModalVisible(false)}>
+          <View style={styles.modalContainer}>
+            <TouchableWithoutFeedback>
+              <View style={styles.modalContentContainer}>
+                <Text>Valor do estacionamento</Text>
+                <Text>R$ {value?.replace('.', ',')}</Text>
+                <Button
+                  title="CONFIRMAR PAGAMENTO"
+                  onPress={onCheckoutConfirm}
+                />
               </View>
             </TouchableWithoutFeedback>
           </View>

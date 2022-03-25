@@ -1,14 +1,28 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 
-const CARROS = [{}, {}, {}];
+import {RouteProp, useRoute} from '@react-navigation/native';
+import {useAppSelector} from '../../store';
+import {ICliente} from '../../types';
+import {getCarrossByIdPatio} from '../../store/slices/estacionamento-slice';
+import {RootNavigationScreens} from '../../router';
 
 const CarrosEstacionadosView: React.FC<{}> = () => {
-  const renderItem = ({item}) => {
+  const {
+    params: {idPatio},
+  } = useRoute<RouteProp<RootNavigationScreens, 'CarrosEstacionados'>>();
+
+  const carros = useAppSelector(({estacionamento}) =>
+    getCarrossByIdPatio(estacionamento, idPatio),
+  );
+
+  const renderItem = ({item}: {item: ICliente}) => {
     return (
       <View style={styles.itemContainer}>
-        <Text>Carro tal</Text>
-        <Text>HXN-2323</Text>
+        <Text>
+          {item.modelo} - {item.cor}
+        </Text>
+        <Text>{item.placa}</Text>
       </View>
     );
   };
@@ -17,9 +31,9 @@ const CarrosEstacionadosView: React.FC<{}> = () => {
     <View style={styles.container}>
       <Text>Carros estacionados em: Pátio A</Text>
       <FlatList
-        style={{marginHorizontal: -24}}
+        style={styles.list}
         contentContainerStyle={styles.flatList}
-        data={CARROS}
+        data={carros}
         keyExtractor={(_, index) => index.toString()}
         numColumns={2}
         renderItem={renderItem}
@@ -34,6 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     padding: 24,
   },
+  list: {marginHorizontal: -24},
   flatList: {
     padding: 12,
   },
