@@ -67,7 +67,7 @@ const UsuariosView: React.FC<{}> = () => {
         style={styles.flatList}
         contentContainerStyle={styles.flatListContent}
         data={usuarios}
-        keyExtractor={(_, index) => index.toString()}
+        keyExtractor={item => item.email}
         renderItem={renderItem}
         ListEmptyComponent={<Text>Nenhum usuário cadastrado</Text>}
       />

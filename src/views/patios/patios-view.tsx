@@ -70,7 +70,7 @@ const PatiosView: React.FC<{}> = () => {
 
       <FlatList
         data={patios}
-        keyExtractor={(_, index) => index.toString()}
+        keyExtractor={item => item.id}
         renderItem={renderItem}
         style={styles.flatList}
         contentContainerStyle={styles.flatListContent}

@@ -40,7 +40,7 @@ const CarrosEstacionadosView: React.FC<{}> = () => {
         style={styles.list}
         contentContainerStyle={styles.flatList}
         data={carros}
-        keyExtractor={(_, index) => index.toString()}
+        keyExtractor={item => item.cpf}
         numColumns={2}
         renderItem={renderItem}
       />
