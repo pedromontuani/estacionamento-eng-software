@@ -19,7 +19,7 @@ const LoginView: React.FC<{}> = () => {
   );
   const dispatch = useAppDispatch();
 
-  const onPressLogin = async () => {
+  const onSubmitLogin = async () => {
     if (email && senha) {
       const usuario = findUsuarioByEmailAndPassoword(usuarios, email, senha);
       if (usuario) {
@@ -49,7 +49,7 @@ const LoginView: React.FC<{}> = () => {
           onChangeText={setSenha}
         />
 
-        <Button title="LOGIN" onPress={onPressLogin} />
+        <Button title="LOGIN" onPress={onSubmitLogin} />
       </View>
     </View>
   );

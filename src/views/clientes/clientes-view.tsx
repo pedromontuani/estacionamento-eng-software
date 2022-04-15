@@ -38,7 +38,7 @@ const ClientesView: React.FC<{}> = () => {
     setCpfModalVisible(true);
   };
 
-  const onCheckoutConfirm = () => {
+  const onConfirmCheckout = () => {
     if (cliente) {
       dispatch(REMOVE_CLIENTE(cliente));
       setConfirmationModalVisible(false);
@@ -101,7 +101,7 @@ const ClientesView: React.FC<{}> = () => {
                 <Text>R$ {value?.replace('.', ',')}</Text>
                 <Button
                   title="CONFIRMAR PAGAMENTO"
-                  onPress={onCheckoutConfirm}
+                  onPress={onConfirmCheckout}
                 />
               </View>
             </TouchableWithoutFeedback>

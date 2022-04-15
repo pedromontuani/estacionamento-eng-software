@@ -16,11 +16,12 @@ import {useAppDispatch, useAppSelector} from '../store';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {SIGN_OUT} from '../store/slices/estacionamento-slice';
+import {IPatio} from '../types';
 
 export type RootNavigationScreens = {
   PatiosList: undefined;
   AdicionarPatio: undefined;
-  CarrosEstacionados: {idPatio: string};
+  CarrosEstacionados: {patio: IPatio};
   ClientesView: undefined;
   CheckinCliente: undefined;
   UsuariosList: undefined;
@@ -95,11 +96,6 @@ const Router: React.FC<{}> = () => {
           {usuarioLogado.tipo === 'Administrador' && (
             <Drawer.Group>
               <Drawer.Screen
-                name="Patios"
-                options={{title: 'Pátios'}}
-                component={PatiosNavigation}
-              />
-              <Drawer.Screen
                 name="Usuarios"
                 options={{title: 'Usuários'}}
                 component={UsuariosNavigation}
@@ -107,6 +103,11 @@ const Router: React.FC<{}> = () => {
               <Drawer.Screen name="Rendimentos" component={RendimentosView} />
             </Drawer.Group>
           )}
+          <Drawer.Screen
+            name="Patios"
+            options={{title: 'Pátios'}}
+            component={PatiosNavigation}
+          />
           <Drawer.Screen name="Clientes" component={ClientesNavigation} />
         </Drawer.Navigator>
       ) : (

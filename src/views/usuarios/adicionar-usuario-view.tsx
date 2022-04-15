@@ -64,7 +64,7 @@ const AdicionarUsuarioView: React.FC<{}> = () => {
         </View>
         <View style={styles.inputContainer}>
           <View style={styles.adminContainer}>
-            <Text>Usuário administrador?</Text>
+            <Text>Usuário gerente?</Text>
             <Switch
               trackColor={{false: '#767577', true: '#81b0ff'}}
               thumbColor={isAdmin ? '#1976d2' : '#f4f3f4'}

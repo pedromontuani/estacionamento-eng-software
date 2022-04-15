@@ -21,11 +21,11 @@ import {RootNavigationScreens} from '../../router';
 
 const UsuariosView: React.FC<{}> = () => {
   const {navigate} = useNavigation<NavigationProp<RootNavigationScreens>>();
+  const dispatch = useAppDispatch();
 
   const usuarios = useAppSelector(({estacionamento}) =>
     getUsuarios(estacionamento),
   );
-  const dispatch = useAppDispatch();
 
   const onDeleteUsuario = (usuario: IUsuario) => {
     Alert.alert('Atenção', 'Deseja realmente excluir o usuário?', [
@@ -42,6 +42,10 @@ const UsuariosView: React.FC<{}> = () => {
     ]);
   };
 
+  const onAdicionarUsuario = () => {
+    navigate('AdicionarUsuario');
+  };
+
   const renderItem = ({item}: {item: IUsuario}) => {
     return (
       <View style={styles.itemContainer}>
@@ -56,13 +60,9 @@ const UsuariosView: React.FC<{}> = () => {
     );
   };
 
-  const onPressAdicionarUsuario = () => {
-    navigate('AdicionarUsuario');
-  };
-
   return (
     <View style={styles.container}>
-      <Button title="Adicionar usuário" onPress={onPressAdicionarUsuario} />
+      <Button title="Adicionar usuário" onPress={onAdicionarUsuario} />
       <FlatList
         style={styles.flatList}
         contentContainerStyle={styles.flatListContent}

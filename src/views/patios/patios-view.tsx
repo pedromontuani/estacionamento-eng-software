@@ -21,14 +21,18 @@ const PatiosView: React.FC<{}> = () => {
   const patios = useAppSelector(({estacionamento}) =>
     getPatios(estacionamento),
   );
+  const usuarioLogado = useAppSelector(
+    state => state.estacionamento.usuarioLogado,
+  );
+
   const dispatch = useAppDispatch();
   const {navigate} = useNavigation<NavigationProp<RootNavigationScreens>>();
 
   const onPressPatio = (patio: IPatio) => {
-    navigate('CarrosEstacionados', {idPatio: patio.id});
+    navigate('CarrosEstacionados', {patio});
   };
 
-  const onPressAdicionarPatio = () => navigate('AdicionarPatio');
+  const onAdicionarPatio = () => navigate('AdicionarPatio');
 
   const onDeletePatio = (patio: IPatio) => {
     Alert.alert('Atenção', 'Deseja realmente excluir o pátio?', [
@@ -53,20 +57,24 @@ const PatiosView: React.FC<{}> = () => {
         <View style={styles.itemInfoContainer}>
           <Text>{item.nome}</Text>
           <View style={styles.itemSubInfo}>
-            <Text>Vagas disponíveis: {item.vagasDisponiveis}</Text>
+            <Text>
+              Vagas disponíveis: {item.vagasDisponiveis - item.vagasOcupadas}
+            </Text>
             <Text>Vagas ocupadas: {item.vagasOcupadas}</Text>
           </View>
         </View>
-        <TouchableOpacity onPress={() => onDeletePatio(item)}>
-          <Icon name="trash" color="#c40a0a" size={25} style={styles.icon} />
-        </TouchableOpacity>
+        {usuarioLogado?.tipo === 'Administrador' && (
+          <TouchableOpacity onPress={() => onDeletePatio(item)}>
+            <Icon name="trash" color="#c40a0a" size={25} style={styles.icon} />
+          </TouchableOpacity>
+        )}
       </TouchableOpacity>
     );
   };
 
   return (
     <View style={styles.container}>
-      <Button title="Novo pátio" onPress={onPressAdicionarPatio} />
+      <Button title="Novo pátio" onPress={onAdicionarPatio} />
 
       <FlatList
         data={patios}

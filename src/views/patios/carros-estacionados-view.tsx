@@ -4,22 +4,16 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {useAppSelector} from '../../store';
 import {ICliente} from '../../types';
-import {
-  getCarrosByIdPatio,
-  getPatioById,
-} from '../../store/slices/estacionamento-slice';
+import {getCarrosByIdPatio} from '../../store/slices/estacionamento-slice';
 import {RootNavigationScreens} from '../../router';
 
 const CarrosEstacionadosView: React.FC<{}> = () => {
   const {
-    params: {idPatio},
+    params: {patio},
   } = useRoute<RouteProp<RootNavigationScreens, 'CarrosEstacionados'>>();
 
   const carros = useAppSelector(({estacionamento}) =>
-    getCarrosByIdPatio(estacionamento, idPatio),
-  );
-  const patio = useAppSelector(({estacionamento}) =>
-    getPatioById(estacionamento, idPatio),
+    getCarrosByIdPatio(estacionamento, patio.id),
   );
 
   const renderItem = ({item}: {item: ICliente}) => {
@@ -43,6 +37,7 @@ const CarrosEstacionadosView: React.FC<{}> = () => {
         keyExtractor={item => item.cpf}
         numColumns={2}
         renderItem={renderItem}
+        ListEmptyComponent={<Text>Nenhum carro estacionado</Text>}
       />
     </View>
   );

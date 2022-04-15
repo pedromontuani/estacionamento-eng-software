@@ -38,7 +38,7 @@ const AdicionarPatioView: React.FC<{}> = () => {
       <Text>Adicionar novo pátio</Text>
       <View style={styles.inputsContainer}>
         <View style={styles.inputContainer}>
-          <Input placeholder="Nome" value={nome} onChangeText={setNome} />
+          <Input placeholder="Código" value={nome} onChangeText={setNome} />
         </View>
         <View style={styles.inputContainer}>
           <Input

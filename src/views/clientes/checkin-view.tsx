@@ -31,7 +31,7 @@ const CheckinView: React.FC<{}> = () => {
 
   const dispatch = useAppDispatch();
 
-  const onCheckinConfirm = async () => {
+  const onSubmitCheckin = async () => {
     if (patios.length > 0) {
       if (cpf && placa && modelo && cor) {
         const availablePatio = patios.filter(
@@ -94,7 +94,7 @@ const CheckinView: React.FC<{}> = () => {
         </View>
       </View>
 
-      <Button title="Salvar" onPress={onCheckinConfirm} />
+      <Button title="Salvar" onPress={onSubmitCheckin} />
       <Modal
         visible={modalVisible}
         transparent

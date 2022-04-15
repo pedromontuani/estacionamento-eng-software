@@ -23,10 +23,7 @@ const RendimentosView: React.FC<{}> = () => {
       <View style={styles.chartContainer}>
         <Text>Rendimento mensal</Text>
         <BarChart
-          style={{
-            marginVertical: 8,
-            borderRadius: 16,
-          }}
+          style={styles.chart}
           data={rendimentoMensal}
           width={screenWidth - 80}
           height={220}
@@ -54,10 +51,7 @@ const RendimentosView: React.FC<{}> = () => {
       <View style={styles.chartContainer}>
         <Text>Rendimento semanal</Text>
         <BarChart
-          style={{
-            marginVertical: 8,
-            borderRadius: 16,
-          }}
+          style={styles.chart}
           data={rendimentoSemanal}
           width={screenWidth - 80}
           height={220}
@@ -99,6 +93,10 @@ const styles = StyleSheet.create({
     marginVertical: 24,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  chart: {
+    marginVertical: 8,
+    borderRadius: 16,
   },
 });
 
