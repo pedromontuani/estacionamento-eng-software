@@ -7,7 +7,7 @@ describe('Testing Button component', () => {
   test('should render correctly', async () => {
     const tree = rendererCreate(
       <Button title="Teste" onPress={() => {}} />,
-    ).toJSON();
+    );
     expect(tree).toMatchSnapshot();
   });
 });

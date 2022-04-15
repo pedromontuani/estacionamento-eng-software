@@ -5,7 +5,7 @@ import ClientsView from '../../../src/views/clientes/clientes-view';
 
 describe('Testing clients view', () => {
   test('should match snapshot', async () => {
-    const tree = rendererCreate(<ClientsView />).toJSON();
+    const tree = rendererCreate(<ClientsView />);
     expect(tree).toMatchSnapshot();
   });
 });

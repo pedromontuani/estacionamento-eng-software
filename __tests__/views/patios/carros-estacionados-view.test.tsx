@@ -14,7 +14,7 @@ describe('Testing parked cars view', () => {
   });
 
   test('should match snapshot', async () => {
-    const tree = rendererCreate(<ParkedCarsView />).toJSON();
+    const tree = rendererCreate(<ParkedCarsView />);
     expect(tree).toMatchSnapshot();
   });
 });

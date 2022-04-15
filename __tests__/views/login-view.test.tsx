@@ -11,7 +11,7 @@ describe('Testing login view', () => {
   });
 
   test('should match snapshot', async () => {
-    const tree = rendererCreate(<LoginView />).toJSON();
+    const tree = rendererCreate(<LoginView />);
     expect(tree).toMatchSnapshot();
   });
 

@@ -19,7 +19,7 @@ describe('Testing add user view', () => {
   });
 
   test('should match snapshot', async () => {
-    const tree = rendererCreate(<AddNewUserView />).toJSON();
+    const tree = rendererCreate(<AddNewUserView />);
     expect(tree).toMatchSnapshot();
   });
 

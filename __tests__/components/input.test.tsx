@@ -8,7 +8,7 @@ describe('Testing Input component', () => {
   test('should render correctly', async () => {
     const tree = rendererCreate(
       <Input value="" onChangeText={() => {}} />,
-    ).toJSON();
+    );
     expect(tree).toMatchSnapshot();
   });
 

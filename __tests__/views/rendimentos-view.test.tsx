@@ -5,7 +5,7 @@ import RendimentosView from '../../src/views/rendimentos-view';
 
 describe('Testing users view', () => {
   test('should match snapshot', async () => {
-    const tree = rendererCreate(<RendimentosView />).toJSON();
+    const tree = rendererCreate(<RendimentosView />);
     expect(tree).toMatchSnapshot();
   });
 });
