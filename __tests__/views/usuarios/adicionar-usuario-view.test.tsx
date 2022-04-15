@@ -73,11 +73,11 @@ describe('Testing add user view', () => {
     await fireEvent.changeText(emailInput, MOCK_MANAGER_EMAIL);
     await fireEvent.changeText(nameInput, MOCK_MANAGER_NAME);
     await fireEvent.changeText(passwordInput, MOCK_MANAGER_PASSWORD);
-    await fireEvent.press(setManagerSwitch);
+    await fireEvent(setManagerSwitch, 'valueChange', true);
     await fireEvent.press(saveButton);
 
     expect(addNewUser).toHaveBeenCalledWith(
-      expect.objectContaining({tipo: 'Funcionário(a)'}),
+      expect.objectContaining({tipo: 'Administrador'}),
     );
   });
 });

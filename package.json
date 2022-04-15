@@ -6,9 +6,9 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest --coverage",
+    "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "sonar": "npx sonarqube-scanner"
+    "sonar": "jest --coverage && npx sonarqube-scanner"
   },
   "dependencies": {
     "@react-navigation/drawer": "^6.3.1",
