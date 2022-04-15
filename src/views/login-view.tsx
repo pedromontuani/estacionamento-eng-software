@@ -34,6 +34,7 @@ const LoginView: React.FC<{}> = () => {
     <View style={styles.container}>
       <View style={styles.contentOuter}>
         <Input
+          testID="email-input"
           placeholder="Email"
           keyboardType="email-address"
           autoCapitalize="none"
@@ -43,6 +44,7 @@ const LoginView: React.FC<{}> = () => {
         />
 
         <Input
+          testID="password-input"
           placeholder="Senha"
           secureTextEntry
           value={senha}

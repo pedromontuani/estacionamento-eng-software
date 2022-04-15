@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/login-view.test.tsx">
+    <testCase name="Testing login view should match snapshot" duration="397"/>
+    <testCase name="Testing login view should sign in" duration="65"/>
+    <testCase name="Testing login view should not sign in" duration="26"/>
+  </file>
+</testExecutions>
