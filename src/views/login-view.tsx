@@ -51,7 +51,7 @@ const LoginView: React.FC<{}> = () => {
           onChangeText={setSenha}
         />
 
-        <Button title="LOGIN" onPress={onSubmitLogin} />
+        <Button testID="sign-in-button" title="LOGIN" onPress={onSubmitLogin} />
       </View>
     </View>
   );

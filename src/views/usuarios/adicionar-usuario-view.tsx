@@ -6,6 +6,7 @@ import Input from '../../components/Input';
 import {RootNavigationScreens} from '../../router';
 import {useAppDispatch} from '../../store';
 import {ADD_USUARIO} from '../../store/slices/estacionamento-slice';
+
 const AdicionarUsuarioView: React.FC<{}> = () => {
   const [nome, setNome] = useState<string>();
   const [email, setEmail] = useState<string>();
@@ -42,10 +43,16 @@ const AdicionarUsuarioView: React.FC<{}> = () => {
       <Text>Adicionar novo usuário</Text>
       <View style={styles.inputsContainer}>
         <View style={styles.inputContainer}>
-          <Input placeholder="Nome" value={nome} onChangeText={setNome} />
+          <Input
+            testID="name-input"
+            placeholder="Nome"
+            value={nome}
+            onChangeText={setNome}
+          />
         </View>
         <View style={styles.inputContainer}>
           <Input
+            testID="email-input"
             placeholder="Email"
             autoCapitalize="none"
             textContentType="emailAddress"
@@ -56,6 +63,7 @@ const AdicionarUsuarioView: React.FC<{}> = () => {
         </View>
         <View style={styles.inputContainer}>
           <Input
+            testID="user-password-input"
             secureTextEntry
             placeholder="Senha"
             value={senha}
@@ -66,6 +74,7 @@ const AdicionarUsuarioView: React.FC<{}> = () => {
           <View style={styles.adminContainer}>
             <Text>Usuário gerente?</Text>
             <Switch
+              testID="set-manager-switch"
               trackColor={{false: '#767577', true: '#81b0ff'}}
               thumbColor={isAdmin ? '#1976d2' : '#f4f3f4'}
               ios_backgroundColor="#3e3e3e"
@@ -76,7 +85,7 @@ const AdicionarUsuarioView: React.FC<{}> = () => {
         </View>
       </View>
 
-      <Button title="Salvar" onPress={onSaveUsuario} />
+      <Button testID="save-button" title="Salvar" onPress={onSaveUsuario} />
     </View>
   );
 };

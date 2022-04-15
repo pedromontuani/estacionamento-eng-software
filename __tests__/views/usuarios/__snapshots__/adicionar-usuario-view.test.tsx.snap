@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing add user view should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "height": 1334,
+      "padding": 24,
+      "width": 750,
+    }
+  }
+>
+  <Text>
+    Adicionar novo usuário
+  </Text>
+  <View
+    style={
+      Object {
+        "paddingVertical": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "white",
+            "borderRadius": 22,
+            "elevation": 2,
+            "height": 44,
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <TextInput
+          onChangeText={[Function]}
+          placeholder="Nome"
+          testID="name-input"
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "white",
+            "borderRadius": 22,
+            "elevation": 2,
+            "height": 44,
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <TextInput
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          placeholder="Email"
+          testID="email-input"
+          textContentType="emailAddress"
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "white",
+            "borderRadius": 22,
+            "elevation": 2,
+            "height": 44,
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <TextInput
+          onChangeText={[Function]}
+          placeholder="Senha"
+          secureTextEntry={true}
+          testID="user-password-input"
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Text>
+          Usuário gerente?
+        </Text>
+        <RCTSwitch
+          accessibilityRole="switch"
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onTintColor="#81b0ff"
+          style={
+            Array [
+              Object {
+                "height": 31,
+                "width": 51,
+              },
+              Object {
+                "backgroundColor": "#3e3e3e",
+                "borderRadius": 16,
+              },
+            ]
+          }
+          testID="set-manager-switch"
+          thumbTintColor="#f4f3f4"
+          tintColor="#767577"
+          value={false}
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1976d2",
+        "borderRadius": 20,
+        "elevation": 5,
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "100%",
+      }
+    }
+    testID="save-button"
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "500",
+        }
+      }
+    >
+      Salvar
+    </Text>
+  </View>
+</View>
+`;

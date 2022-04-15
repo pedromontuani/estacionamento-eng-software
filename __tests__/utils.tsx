@@ -4,6 +4,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import renderer, {ReactTestRenderer} from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import {store} from '../src/store';
+import {NavigationContainer} from '@react-navigation/native';
 
 interface IAllThemeProviders {
   children: React.ReactElement;
@@ -12,7 +13,9 @@ interface IAllThemeProviders {
 const Providers = ({children}: IAllThemeProviders) => {
   return (
     <Provider store={store}>
-      <SafeAreaProvider>{children}</SafeAreaProvider>
+      <SafeAreaProvider>
+        <NavigationContainer>{children}</NavigationContainer>
+      </SafeAreaProvider>
     </Provider>
   );
 };

@@ -95,6 +95,7 @@ exports[`Testing login view should match snapshot 1`] = `
           "width": "100%",
         }
       }
+      testID="sign-in-button"
     >
       <Text
         style={
