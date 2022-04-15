@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Button component should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "white",
+      "borderRadius": 22,
+      "elevation": 2,
+      "height": 44,
+      "justifyContent": "center",
+      "paddingHorizontal": 8,
+      "width": "100%",
+    }
+  }
+>
+  <TextInput
+    onChangeText={[Function]}
+    value=""
+  />
+</View>
+`;

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/login-view.test.tsx">
-    <testCase name="Testing login view should match snapshot" duration="390"/>
-    <testCase name="Testing login view should sign in" duration="49"/>
-    <testCase name="Testing login view should not sign in" duration="24"/>
-  </file>
-  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/usuarios/adicionar-usuario-view.test.tsx">
-    <testCase name="Testing add user view should match snapshot" duration="412"/>
-    <testCase name="Testing add user view should add new user" duration="70"/>
-    <testCase name="Testing add user view should not add new user" duration="19"/>
-    <testCase name="Testing add user view should add new manager" duration="19"/>
+  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/patios/carros-estacionados-view.test.tsx">
+    <testCase name="Testing patios view should match snapshot" duration="505"/>
   </file>
 </testExecutions>

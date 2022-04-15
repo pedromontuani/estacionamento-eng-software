@@ -10,17 +10,21 @@ jest.mock('react-native-reanimated', () => {
   return Reanimated;
 });
 
-// jest.mock('@react-navigation/native', () => {
-//   const originalModule = jest.requireActual('@react-navigation/native');
+jest.mock('@react-navigation/native', () => {
+  const originalModule = jest.requireActual('@react-navigation/native');
 
-//   return {
-//     __esModule: true,
-//     ...originalModule,
-//     useFocusEffect: jest.fn(),
-//     useNavigation: jest.fn(() => ({
-//       dangerouslyGetParent: jest.fn(),
-//       navigate: jest.fn(),
-//     })),
-//     useIsFocused: jest.fn(),
-//   };
-// });
+  return {
+    __esModule: true,
+    ...originalModule,
+    useFocusEffect: jest.fn(),
+    useNavigation: jest.fn(() => ({
+      dangerouslyGetParent: jest.fn(),
+      navigate: jest.fn(),
+    })),
+    useIsFocused: jest.fn(),
+    useRoute: () => ({
+      params: {},
+      name: '',
+    }),
+  };
+});

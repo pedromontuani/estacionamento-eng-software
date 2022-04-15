@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing clients view should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "height": 1334,
+      "padding": 24,
+      "width": 750,
+    }
+  }
+>
+  <Text>
+    Check-in do cleinte
+  </Text>
+  <View
+    style={
+      Object {
+        "paddingVertical": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "white",
+            "borderRadius": 22,
+            "elevation": 2,
+            "height": 44,
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <TextInput
+          keyboardType="numeric"
+          onChangeText={[Function]}
+          placeholder="CPF"
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "white",
+            "borderRadius": 22,
+            "elevation": 2,
+            "height": 44,
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <TextInput
+          onChangeText={[Function]}
+          placeholder="Placa"
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "white",
+            "borderRadius": 22,
+            "elevation": 2,
+            "height": 44,
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <TextInput
+          onChangeText={[Function]}
+          placeholder="Modelo"
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "white",
+            "borderRadius": 22,
+            "elevation": 2,
+            "height": 44,
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <TextInput
+          onChangeText={[Function]}
+          placeholder="Cor do veículo"
+          value=""
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1976d2",
+        "borderRadius": 20,
+        "elevation": 5,
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "500",
+        }
+      }
+    >
+      Salvar
+    </Text>
+  </View>
+  <Modal
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    transparent={true}
+    visible={false}
+  />
+</View>
+`;
