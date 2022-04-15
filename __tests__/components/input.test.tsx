@@ -4,7 +4,7 @@ import {fireEvent} from '@testing-library/react-native';
 
 import Input from '../../src/components/Input';
 
-describe('Testing Button component', () => {
+describe('Testing Input component', () => {
   test('should render correctly', async () => {
     const tree = rendererCreate(
       <Input value="" onChangeText={() => {}} />,

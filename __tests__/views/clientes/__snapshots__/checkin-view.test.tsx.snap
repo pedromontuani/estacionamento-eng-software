@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing clients view should match snapshot 1`] = `
+exports[`Testing checkin view should match snapshot 1`] = `
 <View
   style={
     Object {
