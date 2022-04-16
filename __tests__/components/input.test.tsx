@@ -6,9 +6,7 @@ import Input from '../../src/components/Input';
 
 describe('Testing Input component', () => {
   test('should render correctly', async () => {
-    const tree = rendererCreate(
-      <Input value="" onChangeText={() => {}} />,
-    );
+    const tree = rendererCreate(<Input value="" onChangeText={() => {}} />);
     expect(tree).toMatchSnapshot();
   });
 
