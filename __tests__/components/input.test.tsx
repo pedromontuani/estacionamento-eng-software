@@ -15,6 +15,7 @@ describe('Testing Input component', () => {
     const onChangeText = jest.fn().mockImplementation(text => {
       value = text;
     });
+
     const {getByTestId} = customRender(
       <Input testID="input-test" value={value} onChangeText={onChangeText} />,
     );
