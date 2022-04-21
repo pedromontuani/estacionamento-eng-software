@@ -8,21 +8,21 @@ import {RootNavigationScreens} from '../../router';
 import {useAppDispatch} from '../../store';
 import {ADD_PATIO} from '../../store/slices/estacionamento-slice';
 
-const AdicionarPatioView: React.FC<{}> = () => {
+function AdicionarPatioView() {
   const [nome, setNome] = useState<string>();
-  const [vagas, setVagas] = useState<number>();
-  const [valorHora, setValorHora] = useState<number>();
+  const [vagas, setVagas] = useState<string>();
+  const [valorHora, setValorHora] = useState<string>();
 
   const {navigate} = useNavigation<NavigationProp<RootNavigationScreens>>();
   const dispatch = useAppDispatch();
 
-  const onSavePatio = () => {
+  function onSavePatio() {
     if (nome && vagas && valorHora) {
       dispatch(
         ADD_PATIO({
           nome,
-          vagasDisponiveis: vagas,
-          valorHora,
+          vagasDisponiveis: parseInt(vagas),
+          valorHora: parseInt(valorHora),
           vagasOcupadas: 0,
           id: uuid.v4().toString(),
         }),
@@ -31,7 +31,7 @@ const AdicionarPatioView: React.FC<{}> = () => {
         {text: 'OK', onPress: () => navigate('PatiosList')},
       ]);
     }
-  };
+  }
 
   return (
     <View style={styles.container}>
@@ -45,7 +45,7 @@ const AdicionarPatioView: React.FC<{}> = () => {
             placeholder="Número de vagas"
             value={vagas?.toString()}
             keyboardType="numeric"
-            onChangeText={value => setVagas(Number(value))}
+            onChangeText={value => setVagas(value)}
           />
         </View>
         <View style={styles.inputContainer}>
@@ -53,16 +53,14 @@ const AdicionarPatioView: React.FC<{}> = () => {
             placeholder="Valor hora"
             keyboardType="numeric"
             value={valorHora?.toString()}
-            onChangeText={value =>
-              setValorHora(Number(value.replace(',', '.')))
-            }
+            onChangeText={value => setValorHora(value.replace(',', '.'))}
           />
         </View>
       </View>
       <Button title="Salvar" onPress={onSavePatio} />
     </View>
   );
-};
+}
 
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
@@ -82,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AdicionarPatioView;
+export default AdicionarPatioView as React.FC<{}>;

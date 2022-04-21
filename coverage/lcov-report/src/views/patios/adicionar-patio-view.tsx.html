@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.7% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/17</span>
+                <span class='fraction'>9/15</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.7% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/17</span>
+                <span class='fraction'>9/15</span>
             </div>
         
             
@@ -146,9 +146,7 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,7 +156,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -166,7 +164,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -203,9 +201,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -243,21 +239,21 @@ import {RootNavigationScreens} from '../../router';
 import {useAppDispatch} from '../../store';
 import {ADD_PATIO} from '../../store/slices/estacionamento-slice';
 &nbsp;
-const AdicionarPatioView: React.FC&lt;{}&gt; = () =&gt; {
+function AdicionarPatioView() {
   const [nome, setNome] = useState&lt;string&gt;();
-  const [vagas, setVagas] = useState&lt;number&gt;();
-  const [valorHora, setValorHora] = useState&lt;number&gt;();
+  const [vagas, setVagas] = useState&lt;string&gt;();
+  const [valorHora, setValorHora] = useState&lt;string&gt;();
 &nbsp;
   const {navigate} = useNavigation&lt;NavigationProp&lt;RootNavigationScreens&gt;&gt;();
   const dispatch = useAppDispatch();
 &nbsp;
-  const onSavePatio = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  function <span class="fstat-no" title="function not covered" >onSavePatio(</span>) {
 <span class="cstat-no" title="statement not covered" >    if (nome &amp;&amp; vagas &amp;&amp; valorHora) {</span>
 <span class="cstat-no" title="statement not covered" >      dispatch(</span>
         ADD_PATIO({
           nome,
-          vagasDisponiveis: vagas,
-          valorHora,
+          vagasDisponiveis: parseInt(vagas),
+          valorHora: parseInt(valorHora),
           vagasOcupadas: 0,
           id: uuid.v4().toString(),
         }),
@@ -266,7 +262,7 @@ const AdicionarPatioView: React.FC&lt;{}&gt; = () =&gt; {
         {text: 'OK', onPress: <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate('PatiosList')}</span>,
       ]);
     }
-  };
+  }
 &nbsp;
   return (
     &lt;View style={styles.container}&gt;
@@ -280,7 +276,7 @@ const AdicionarPatioView: React.FC&lt;{}&gt; = () =&gt; {
             placeholder="Número de vagas"
             value={vagas?.toString()}
             keyboardType="numeric"
-            onChangeText={<span class="fstat-no" title="function not covered" >va</span>lue =&gt; <span class="cstat-no" title="statement not covered" >setVagas(Number(value))}</span>
+            onChangeText={<span class="fstat-no" title="function not covered" >va</span>lue =&gt; <span class="cstat-no" title="statement not covered" >setVagas(value)}</span>
           /&gt;
         &lt;/View&gt;
         &lt;View style={styles.inputContainer}&gt;
@@ -288,16 +284,14 @@ const AdicionarPatioView: React.FC&lt;{}&gt; = () =&gt; {
             placeholder="Valor hora"
             keyboardType="numeric"
             value={valorHora?.toString()}
-            onChangeText={<span class="fstat-no" title="function not covered" >va</span>lue =&gt;
-<span class="cstat-no" title="statement not covered" >              setValorHora(Number(value.replace(',', '.')))</span>
-            }
+            onChangeText={<span class="fstat-no" title="function not covered" >va</span>lue =&gt; <span class="cstat-no" title="statement not covered" >setValorHora(value.replace(',', '.'))}</span>
           /&gt;
         &lt;/View&gt;
       &lt;/View&gt;
       &lt;Button title="Salvar" onPress={onSavePatio} /&gt;
     &lt;/View&gt;
   );
-};
+}
 &nbsp;
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
@@ -317,7 +311,7 @@ const styles = StyleSheet.create({
   },
 });
 &nbsp;
-export default AdicionarPatioView;
+export default AdicionarPatioView as React.FC&lt;{}&gt;;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -325,7 +319,7 @@ export default AdicionarPatioView;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Apr 17 2022 19:55:39 GMT-0300 (Brasilia Standard Time)
+                at Thu Apr 21 2022 16:15:20 GMT-0300 (Brasilia Standard Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

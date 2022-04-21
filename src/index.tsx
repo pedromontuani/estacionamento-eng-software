@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import Router from './router';
 import {store} from './store';
 
-const App: React.FC = () => {
+const App: React.FC<any> = () => {
   return (
     <Provider store={store}>
       <SafeAreaProvider>

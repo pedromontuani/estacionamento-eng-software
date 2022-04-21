@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -86,23 +86,34 @@ const Router: React.FC<{}> = () => {
     state => state.estacionamento.usuarioLogado,
   );
 
+  const isLogado = useMemo(() => {
+    if (usuarioLogado) {
+      return true;
+    } else {
+      return false;
+    }
+  }, [usuarioLogado]);
+
   return (
     <NavigationContainer>
-      {usuarioLogado ? (
+      {isLogado ? (
         <Drawer.Navigator
           screenOptions={{
             headerRight: () => <RightIcon />,
           }}>
-          {usuarioLogado.tipo === 'Administrador' && (
-            <Drawer.Group>
-              <Drawer.Screen
-                name="Usuarios"
-                options={{title: 'Usuários'}}
-                component={UsuariosNavigation}
-              />
-              <Drawer.Screen name="Rendimentos" component={RendimentosView} />
-            </Drawer.Group>
-          )}
+          {
+            //@ts-ignore
+            usuarioLogado.tipo == 'Administrador' && (
+              <Drawer.Group>
+                <Drawer.Screen
+                  name="Usuarios"
+                  options={{title: 'Usuários'}}
+                  component={UsuariosNavigation}
+                />
+                <Drawer.Screen name="Rendimentos" component={RendimentosView} />
+              </Drawer.Group>
+            )
+          }
           <Drawer.Screen
             name="Patios"
             options={{title: 'Pátios'}}

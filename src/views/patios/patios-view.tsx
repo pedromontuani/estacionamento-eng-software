@@ -63,7 +63,7 @@ const PatiosView: React.FC<{}> = () => {
             <Text>Vagas ocupadas: {item.vagasOcupadas}</Text>
           </View>
         </View>
-        {usuarioLogado?.tipo === 'Administrador' && (
+        {usuarioLogado?.tipo == 'Administrador' && (
           <TouchableOpacity onPress={() => onDeletePatio(item)}>
             <Icon name="trash" color="#c40a0a" size={25} style={styles.icon} />
           </TouchableOpacity>

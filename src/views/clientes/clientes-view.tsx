@@ -47,9 +47,9 @@ const ClientesView: React.FC<{}> = () => {
   };
 
   const onPressConfirm = async () => {
-    const clienteInstance = clientes.find(c => c.cpf === cpf);
+    const clienteInstance = clientes.find(c => c.cpf == cpf);
     if (clienteInstance) {
-      const patio = patios.find(p => p.id === clienteInstance.idPatio);
+      const patio = patios.find(p => p.id == clienteInstance.idPatio);
       setCliente(clienteInstance);
       setValue(patio?.valorHora?.toFixed(2));
       setConfirmationModalVisible(true);

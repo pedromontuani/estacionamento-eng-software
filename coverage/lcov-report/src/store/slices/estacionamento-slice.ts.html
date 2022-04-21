@@ -202,7 +202,8 @@
 <a name='L137'></a><a href='#L137'>137</a>
 <a name='L138'></a><a href='#L138'>138</a>
 <a name='L139'></a><a href='#L139'>139</a>
-<a name='L140'></a><a href='#L140'>140</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -341,6 +342,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {IPatio, ICliente, IUsuario} from '../../types';
 import {initialState} from '../../constants';
@@ -375,7 +377,7 @@ const beneficiosSlice = createSlice({
     ADD_CLIENTE: <span class="fstat-no" title="function not covered" >(s</span>tate, {payload}: PayloadAction&lt;IAddClienteAction&gt;) =&gt; {
       const clientes = <span class="cstat-no" title="statement not covered" >[...state.clientes, payload.cliente];</span>
       const patios = <span class="cstat-no" title="statement not covered" >state.patios.map(<span class="fstat-no" title="function not covered" >pa</span>tio =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (patio.id === payload.idPatio) {</span>
+<span class="cstat-no" title="statement not covered" >        if (patio.id == payload.idPatio) {</span>
 <span class="cstat-no" title="statement not covered" >          return {</span>
             ...patio,
             vagasOcupadas: patio.vagasOcupadas + 1,
@@ -389,7 +391,7 @@ const beneficiosSlice = createSlice({
       const clientes = <span class="cstat-no" title="statement not covered" >state.clientes.filter(<span class="fstat-no" title="function not covered" >c </span>=&gt; <span class="cstat-no" title="statement not covered" >c.cpf !== payload.cpf)</span>;</span>
       let rendimento = <span class="cstat-no" title="statement not covered" >0;</span>
       const patios = <span class="cstat-no" title="statement not covered" >state.patios.map(<span class="fstat-no" title="function not covered" >pa</span>tio =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (patio.id === payload.idPatio) {</span>
+<span class="cstat-no" title="statement not covered" >        if (patio.id == payload.idPatio) {</span>
 <span class="cstat-no" title="statement not covered" >          rendimento = patio.valorHora;</span>
 <span class="cstat-no" title="statement not covered" >          return {</span>
             ...patio,
@@ -414,7 +416,7 @@ const beneficiosSlice = createSlice({
         usuarios: state.usuarios.filter(<span class="fstat-no" title="function not covered" >u </span>=&gt; <span class="cstat-no" title="statement not covered" >u.email !== payload.email)</span>,
       };
     },
-    SIGN_IN: (state, {payload}: PayloadAction&lt;IUsuario&gt;) =&gt; {
+    SIGN_IN: (state, {payload}: PayloadAction&lt;any&gt;) =&gt; {
       return {...state, usuarioLogado: payload};
     },
     SIGN_OUT: <span class="fstat-no" title="function not covered" >st</span>ate =&gt; {
@@ -465,21 +467,22 @@ export const findUsuarioByEmailAndPassoword = (
   email: string,
   password: string,
 ) =&gt; {
-  return usuarios.find(u =&gt; u.email === email &amp;&amp; u.senha === password);
+  return usuarios.find(u =&gt; u.email == email &amp;&amp; u.senha == password);
 };
 &nbsp;
 export const getPatios = (state: IEstacionamentoState) =&gt; state.patios;
 &nbsp;
 export const getPatioById = <span class="fstat-no" title="function not covered" >(s</span>tate: IEstacionamentoState, idPatio: string) =&gt;
-<span class="cstat-no" title="statement not covered" >  state.patios.find(<span class="fstat-no" title="function not covered" >p </span>=&gt; <span class="cstat-no" title="statement not covered" >p.id === idPatio)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  state.patios.find(<span class="fstat-no" title="function not covered" >p </span>=&gt; <span class="cstat-no" title="statement not covered" >p.id == idPatio)</span>;</span>
 &nbsp;
 export const getCarrosByIdPatio = (
   state: IEstacionamentoState,
   idPatio: string,
-) =&gt; state.clientes.filter(<span class="fstat-no" title="function not covered" >cl</span>iente =&gt; <span class="cstat-no" title="statement not covered" >cliente.idPatio === idPatio)</span>;
+) =&gt; state.clientes.filter(<span class="fstat-no" title="function not covered" >cl</span>iente =&gt; <span class="cstat-no" title="statement not covered" >cliente.idPatio == idPatio)</span>;
 &nbsp;
-export const getUsuarios = (state: IEstacionamentoState) =&gt;
-  state.usuarios.filter(u =&gt; u.email !== state.usuarioLogado?.email);
+export const getUsuarios = (state: IEstacionamentoState) =&gt; {
+  return state.usuarios.filter(u =&gt; u.email !== state.usuarioLogado?.email);
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -487,7 +490,7 @@ export const getUsuarios = (state: IEstacionamentoState) =&gt;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Apr 17 2022 19:55:39 GMT-0300 (Brasilia Standard Time)
+                at Thu Apr 21 2022 16:15:20 GMT-0300 (Brasilia Standard Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

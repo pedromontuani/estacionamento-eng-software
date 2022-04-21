@@ -14,14 +14,19 @@ const LoginView: React.FC<{}> = () => {
   const [email, setEmail] = useState<string>();
   const [senha, setSenha] = useState<string>();
 
-  const usuarios = useAppSelector(({estacionamento}) =>
-    getAllUsuarios(estacionamento),
-  );
+  const usuarios = useAppSelector(({estacionamento}) => {
+    const users = getAllUsuarios(estacionamento);
+    return users;
+  });
   const dispatch = useAppDispatch();
 
   const onSubmitLogin = async () => {
     if (email && senha) {
-      const usuario = findUsuarioByEmailAndPassoword(usuarios, email, senha);
+      const usuario = await findUsuarioByEmailAndPassoword(
+        usuarios,
+        email,
+        senha,
+      );
       if (usuario) {
         dispatch(SIGN_IN(usuario));
       } else {

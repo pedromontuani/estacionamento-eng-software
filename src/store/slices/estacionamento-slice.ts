@@ -32,7 +32,7 @@ const beneficiosSlice = createSlice({
     ADD_CLIENTE: (state, {payload}: PayloadAction<IAddClienteAction>) => {
       const clientes = [...state.clientes, payload.cliente];
       const patios = state.patios.map(patio => {
-        if (patio.id === payload.idPatio) {
+        if (patio.id == payload.idPatio) {
           return {
             ...patio,
             vagasOcupadas: patio.vagasOcupadas + 1,
@@ -46,7 +46,7 @@ const beneficiosSlice = createSlice({
       const clientes = state.clientes.filter(c => c.cpf !== payload.cpf);
       let rendimento = 0;
       const patios = state.patios.map(patio => {
-        if (patio.id === payload.idPatio) {
+        if (patio.id == payload.idPatio) {
           rendimento = patio.valorHora;
           return {
             ...patio,
@@ -71,7 +71,7 @@ const beneficiosSlice = createSlice({
         usuarios: state.usuarios.filter(u => u.email !== payload.email),
       };
     },
-    SIGN_IN: (state, {payload}: PayloadAction<IUsuario>) => {
+    SIGN_IN: (state, {payload}: PayloadAction<any>) => {
       return {...state, usuarioLogado: payload};
     },
     SIGN_OUT: state => {
@@ -122,18 +122,19 @@ export const findUsuarioByEmailAndPassoword = (
   email: string,
   password: string,
 ) => {
-  return usuarios.find(u => u.email === email && u.senha === password);
+  return usuarios.find(u => u.email == email && u.senha == password);
 };
 
 export const getPatios = (state: IEstacionamentoState) => state.patios;
 
 export const getPatioById = (state: IEstacionamentoState, idPatio: string) =>
-  state.patios.find(p => p.id === idPatio);
+  state.patios.find(p => p.id == idPatio);
 
 export const getCarrosByIdPatio = (
   state: IEstacionamentoState,
   idPatio: string,
-) => state.clientes.filter(cliente => cliente.idPatio === idPatio);
+) => state.clientes.filter(cliente => cliente.idPatio == idPatio);
 
-export const getUsuarios = (state: IEstacionamentoState) =>
-  state.usuarios.filter(u => u.email !== state.usuarioLogado?.email);
+export const getUsuarios = (state: IEstacionamentoState) => {
+  return state.usuarios.filter(u => u.email !== state.usuarioLogado?.email);
+};
