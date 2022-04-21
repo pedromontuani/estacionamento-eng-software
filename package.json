@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "sonar": "jest --coverage && npx sonarqube-scanner"
+    "sonar": "npx sonarqube-scanner"
   },
   "dependencies": {
     "@react-navigation/drawer": "^6.3.1",

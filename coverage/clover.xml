@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1650061333873" clover="3.2.0">
-  <project timestamp="1650061333873" name="All files">
-    <metrics statements="250" coveredstatements="147" conditionals="51" coveredconditionals="15" methods="103" coveredmethods="40" elements="404" coveredelements="202" complexity="0" loc="250" ncloc="250" packages="10" files="17" classes="17"/>
+<coverage generated="1650236139639" clover="3.2.0">
+  <project timestamp="1650236139639" name="All files">
+    <metrics statements="250" coveredstatements="147" conditionals="51" coveredconditionals="17" methods="103" coveredmethods="40" elements="404" coveredelements="204" complexity="0" loc="250" ncloc="250" packages="10" files="17" classes="17"/>
     <package name="src">
       <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="constants.ts" path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/src/constants.ts">
@@ -34,13 +34,13 @@
       <file name="Button.tsx" path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/src/components/Button.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="10" count="8" type="stmt"/>
-        <line num="11" count="25" type="stmt"/>
+        <line num="11" count="26" type="stmt"/>
         <line num="21" count="8" type="stmt"/>
       </file>
       <file name="Input.tsx" path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/src/components/Input.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="9" count="6" type="stmt"/>
-        <line num="16" count="62" type="stmt"/>
+        <line num="16" count="65" type="stmt"/>
         <line num="29" count="6" type="stmt"/>
       </file>
     </package>
@@ -74,7 +74,7 @@
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="11" type="stmt"/>
         <line num="14" count="11" type="stmt"/>
-        <line num="15" count="25" type="stmt"/>
+        <line num="15" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.store.slices">
@@ -293,22 +293,22 @@
       </file>
     </package>
     <package name="src.views.usuarios">
-      <metrics statements="32" coveredstatements="27" conditionals="9" coveredconditionals="7" methods="11" coveredmethods="6"/>
+      <metrics statements="32" coveredstatements="27" conditionals="9" coveredconditionals="9" methods="11" coveredmethods="6"/>
       <file name="adicionar-usuario-view.tsx" path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/src/views/usuarios/adicionar-usuario-view.tsx">
-        <metrics statements="16" coveredstatements="15" conditionals="9" coveredconditionals="7" methods="3" coveredmethods="2"/>
+        <metrics statements="16" coveredstatements="15" conditionals="9" coveredconditionals="9" methods="3" coveredmethods="2"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="13" type="stmt"/>
-        <line num="12" count="13" type="stmt"/>
-        <line num="13" count="13" type="stmt"/>
-        <line num="14" count="13" type="stmt"/>
-        <line num="15" count="13" type="stmt"/>
-        <line num="17" count="13" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="12" count="14" type="stmt"/>
+        <line num="13" count="14" type="stmt"/>
+        <line num="14" count="14" type="stmt"/>
+        <line num="15" count="14" type="stmt"/>
+        <line num="17" count="14" type="stmt"/>
+        <line num="19" count="14" type="stmt"/>
         <line num="20" count="3" type="cond" truecount="5" falsecount="0"/>
         <line num="21" count="2" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="41" count="13" type="stmt"/>
+        <line num="41" count="14" type="stmt"/>
         <line num="93" count="1" type="stmt"/>
         <line num="94" count="1" type="stmt"/>
         <line num="96" count="1" type="stmt"/>

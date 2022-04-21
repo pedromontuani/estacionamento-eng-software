@@ -20,7 +20,7 @@ const Button: React.FC<IButtonProps> = ({testID, title, onPress}) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 40,
+    height: 30,
     width: '100%',
     borderRadius: 20,
     backgroundColor: '#1976d2',

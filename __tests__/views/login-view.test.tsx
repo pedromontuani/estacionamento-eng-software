@@ -17,6 +17,7 @@ describe('Testing login view', () => {
 
   test('should sign in', async () => {
     const {findByTestId} = customRender(<LoginView />);
+
     const emailInput = await findByTestId('email-input');
     const passwordInput = await findByTestId('password-input');
     const signInButton = await findByTestId('sign-in-button');
@@ -32,6 +33,7 @@ describe('Testing login view', () => {
 
   test('should not sign in', async () => {
     const {findByTestId} = customRender(<LoginView />);
+
     const emailInput = await findByTestId('email-input');
     const passwordInput = await findByTestId('password-input');
     const signInButton = await findByTestId('sign-in-button');
@@ -41,6 +43,7 @@ describe('Testing login view', () => {
     await fireEvent.changeText(emailInput, 'teste@estacionamento.com');
     await fireEvent.changeText(passwordInput, '123456');
     await fireEvent.press(signInButton);
+
     expect(signIn).not.toHaveBeenCalled();
   });
 });

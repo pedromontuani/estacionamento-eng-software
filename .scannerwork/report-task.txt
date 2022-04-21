@@ -2,5 +2,5 @@ projectKey=AppEstacionamentos
 serverUrl=http://localhost:9000
 serverVersion=9.4.0.54424
 dashboardUrl=http://localhost:9000/dashboard?id=AppEstacionamentos
-ceTaskId=AYAvUmKPAL8TEaZ0JRcc
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYAvUmKPAL8TEaZ0JRcc
+ceTaskId=AYAyk9YlnaJT613jlE_I
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYAyk9YlnaJT613jlE_I

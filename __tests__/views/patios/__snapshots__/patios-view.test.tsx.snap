@@ -27,7 +27,7 @@ exports[`Testing patios view should match snapshot 1`] = `
         "backgroundColor": "#1976d2",
         "borderRadius": 20,
         "elevation": 5,
-        "height": 40,
+        "height": 30,
         "justifyContent": "center",
         "opacity": 1,
         "width": "100%",

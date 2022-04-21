@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/components/button.test.tsx">
-    <testCase name="Testing Button component should render correctly" duration="1091"/>
+    <testCase name="Testing Button component should render correctly" duration="776"/>
   </file>
   <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/login-view.test.tsx">
-    <testCase name="Testing login view should match snapshot" duration="1426"/>
-    <testCase name="Testing login view should sign in" duration="97"/>
-    <testCase name="Testing login view should not sign in" duration="74"/>
-  </file>
-  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/usuarios/adicionar-usuario-view.test.tsx">
-    <testCase name="Testing add user view should match snapshot" duration="1322"/>
-    <testCase name="Testing add user view should add new user" duration="201"/>
-    <testCase name="Testing add user view should not add new user" duration="53"/>
-    <testCase name="Testing add user view should add new manager" duration="51"/>
-  </file>
-  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/usuarios/usuarios-view.test.tsx">
-    <testCase name="Testing users view should match snapshot" duration="1591"/>
-  </file>
-  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/patios/patios-view.test.tsx">
-    <testCase name="Testing patios view should match snapshot" duration="1629"/>
+    <testCase name="Testing login view should match snapshot" duration="1246"/>
+    <testCase name="Testing login view should sign in" duration="109"/>
+    <testCase name="Testing login view should not sign in" duration="59"/>
   </file>
   <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/patios/adicionar-patio-view.test.tsx">
-    <testCase name="Testing add new patio view should match snapshot" duration="1382"/>
+    <testCase name="Testing add new patio view should match snapshot" duration="1207"/>
+  </file>
+  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/usuarios/usuarios-view.test.tsx">
+    <testCase name="Testing users view should match snapshot" duration="1517"/>
+  </file>
+  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/patios/patios-view.test.tsx">
+    <testCase name="Testing patios view should match snapshot" duration="1319"/>
   </file>
   <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/clientes/checkin-view.test.tsx">
-    <testCase name="Testing checkin view should match snapshot" duration="1679"/>
+    <testCase name="Testing checkin view should match snapshot" duration="1728"/>
   </file>
-  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/clientes/clientes-view.test.tsx">
-    <testCase name="Testing clients view should match snapshot" duration="260"/>
+  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/usuarios/adicionar-usuario-view.test.tsx">
+    <testCase name="Testing add user view should match snapshot" duration="1349"/>
+    <testCase name="Testing add user view should add new user" duration="127"/>
+    <testCase name="Testing add user view should not add new user" duration="45"/>
+    <testCase name="Testing add user view should add new manager" duration="44"/>
   </file>
   <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/components/input.test.tsx">
-    <testCase name="Testing Input component should render correctly" duration="95"/>
-    <testCase name="Testing Input component should read an input" duration="14"/>
+    <testCase name="Testing Input component should render correctly" duration="111"/>
+    <testCase name="Testing Input component should read an input" duration="17"/>
+  </file>
+  <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/clientes/clientes-view.test.tsx">
+    <testCase name="Testing clients view should match snapshot" duration="225"/>
   </file>
   <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/patios/carros-estacionados-view.test.tsx">
-    <testCase name="Testing parked cars view should match snapshot" duration="255"/>
+    <testCase name="Testing parked cars view should match snapshot" duration="360"/>
   </file>
   <file path="/Users/pedro/Documents/EAD/eng de software/EstacionamentoApp/__tests__/views/rendimentos-view.test.tsx">
-    <testCase name="Testing users view should match snapshot" duration="102"/>
+    <testCase name="Testing users view should match snapshot" duration="101"/>
   </file>
 </testExecutions>
